@@ -1,0 +1,50 @@
+//
+//  gamePch.pch
+//  BlueToothSmallGame
+//
+//  Created by cuiyan on 16/7/25.
+//  Copyright © 2016年 cyan. All rights reserved.
+//
+
+#import "ColorTool.h"
+
+#ifndef gamePch_pch
+#define gamePch_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+
+#define kMainScreeWidth [UIScreen mainScreen].bounds.size.width
+#define kMainScreeHeight [UIScreen mainScreen].bounds.size.height
+
+
+#define color(c) [ColorTool colorFromHex:c]
+
+#ifdef DEBUG
+
+#define InfoLog(fmt, ...) NSLog((@"✅%s [Line %d] %@" fmt), __PRETTY_FUNCTION__, __LINE__, [UIDevice currentDevice].name,##__VA_ARGS__)
+
+#define VerboseLog(fmt, ...) NSLog((@"🆚%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+#define ErrorLog(fmt, ...) NSLog((@"❌%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+#define WarnningLog(fmt, ...) NSLog((@"‼️%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define NSLog(...) NSLog(__VA_ARGS__)
+
+#else
+
+#define InfoLog(fmt, ...)
+
+#define VerboseLog(fmt, ...)
+
+#define ErrorLog(fmt, ...)
+
+#define WarnningLog(fmt, ...)
+#define NSLog(...)
+
+#endif
+
+
+#endif /* gamePch_pch */
